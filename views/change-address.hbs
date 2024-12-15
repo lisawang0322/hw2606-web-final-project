@@ -1,0 +1,23 @@
+<form class="ui form" action="/user/change-address" method="POST">
+    <div class="field">
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street" placeholder="{{user.address.street}}" value="{{user.address.street}}" required>
+    </div>
+
+    <div class="field">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" placeholder="{{user.address.city}}" value="{{user.address.city}}" required>
+    </div>
+
+    <div class="field">
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" placeholder="{{user.address.state}}" value="{{user.address.state}}" required>
+    </div>
+
+    <div class="field">
+        <label for="zipCode">Zip Code:</label>
+        <input type="text" id="zipCode" name="zipCode" placeholder="{{user.address.zipCode}}" value="{{user.address.zipCode}}" required>
+    </div>
+
+    <button type="submit" class="ui button primary">Update Address</button>
+</form>

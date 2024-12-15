@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+
+<body>
+    <header class="ui menu">
+        <div class="ui container">
+            <div class="ui grid">
+                <!-- Logo and Title -->
+                <div class="three wide column">
+                    <a href="/" class="header item">
+                        <img src="/images/logo.png" alt="Your Bakery Logo" class='logo-img'>
+                        Hao's House
+                    </a>
+                </div>
+                <!-- Centered Navigation Menu -->
+                <div class="ten wide column">
+                    <div class="ui center aligned container">
+                        <div class="ui secondary menu">
+                            <a href="/" class="item">Home</a>
+                            <a href="/about" class="item">About Us</a>
+                            <a href="/shop" class="item">Shop</a>
+                            <a href="/contact" class="item">Connect With Us</a>
+                            <a href="/feedback" class="item">Feedback Form</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Account Menu -->
+
+
+
+                <div class="three wide column">
+                    <div class="ui simple dropdown item right floated">
+
+
+                        {{#if isCustomer}}
+                        <div class="ui simple dropdown item">
+                            {{username}} <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a href="/user/customer-dashboard" class="item">Dashboard</a>
+                                <a href="/user/order-history" class="item">Order History</a>
+                                <a href="/user/my-shopping-cart" class="item">Shopping Cart</a>
+                                <a href="/user/logout" class="item">Log Out</a>
+                            </div>
+                        </div>
+                        {{else}}
+                        {{#if isOwner}}
+                        <div class="ui simple dropdown item">
+                            {{username}} <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a href="/user/owner-dashboard" class="item">Dashboard</a>
+                                <a href="/user/logout" class="item">Log Out</a>
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="ui simple dropdown item">
+                            Account <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a href="/login" class="item">Log In</a>
+                                <a href="/register" class="item">Sign Up</a>
+                                <a href="/user/my-shopping-cart" class="item">Shopping Cart</a>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{/if}}
+
+                    </div>
+                </div>
+    </header>
+
+
+
+    <main>
+        {{{body}}}
+    </main>
+
+    <footer class="ui center aligned container">
+        <p>&copy; {{year}} Hao's House. All rights reserved.</p>
+    </footer>
+
+    <script src="/javascripts/main.mjs"></script>
+</body>
+
+</html>

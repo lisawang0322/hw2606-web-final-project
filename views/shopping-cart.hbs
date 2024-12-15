@@ -1,0 +1,57 @@
+{{!-- shopping-cart.hbs --}}
+
+
+<h1>Shopping Cart</h1>
+
+{{#if cartItemsRemoved}}
+    <div class="alert alert-warning">
+        Some products were removed from your cart as they are no longer available.
+    </div>
+{{/if}}
+
+{{#if cartItems.length}}
+<form action="/checkout" method="POST">
+    <!-- Dynamic cart items -->
+    {{#each cartItems}}
+    <div class="cart-item" id="item-{{this._id}}">
+        <input type="checkbox" name="itemSelected" value="{{this._id}}" checked>
+        <div class="item-details">
+            <img src="{{this.image}}" alt="{{this.name}}" class="cart-item-image">
+            <span class="item-name">{{this.name}}</span>
+            <span class="item-price">${{this.price}}</span>
+            <input type="number" name="quantity{{this._id}}" min="1" value="{{this.quantity}}"
+                class="cart-item-quantity">
+        </div>
+        <button type="button" class="delete-item-btn" data-item-id="{{this._id}}">Delete</button>
+    </div>
+    {{/each}}
+
+    <!-- Checkout options -->
+    <div class="checkout-options">
+        <button type="submit" class="checkout-button">Checkout</button>
+    </div>
+
+    <!-- Payment method selection -->
+    <div class="payment-methods">
+        <label for="paypal">PayPal</label>
+        <input type="radio" id="paypal" name="paymentMethod" value="paypal" required>
+
+        <label for="zelle">Zelle</label>
+        <input type="radio" id="zelle" name="paymentMethod" value="zelle">
+
+        <label for="apple-pay">Apple Pay</label>
+        <input type="radio" id="apple-pay" name="paymentMethod" value="apple-pay">
+    </div>
+
+    <div class="zelle-qr-code" style="display:none;">
+        <!-- QR code here -->
+    </div>
+</form>
+{{else}}
+<p>Your shopping cart is empty.</p>
+{{/if}}
+
+<!-- Scripts for handling payment option selection -->
+<script>
+../javascripts/main.mjs
+</script>

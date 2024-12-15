@@ -1,0 +1,28 @@
+<h2 class="ui header">Login</h2>
+<!-- Display error message -->
+{{#if message}}
+  <div class="ui error message">
+    <div class="header">Error</div>
+    <p>{{ message }}</p>
+  </div>
+{{/if}}
+<form class="ui form" method="POST" action="/user/login">
+  <div class="field">
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Enter your username">
+  </div>
+  <div class="field">
+    <label for="password">Password:</label> 
+    <input type="password" name="password" placeholder="Enter your password">
+  </div>
+  <div class="field">
+    <label for="userType">I am a:</label>
+    <select name="userType" id="userType" class="ui dropdown">
+      <option value="customer">Customer</option>
+      <option value="owner">Owner</option>
+    </select>
+  </div>
+  <button type="submit" class="ui button primary">Login</button>
+</form>
+
+

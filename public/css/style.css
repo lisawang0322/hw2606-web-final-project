@@ -1,0 +1,44 @@
+/* Header styles */
+header {
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.ui.menu .ui.container .grid .column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui.secondary.menu {
+    flex: 1 1 auto;
+    justify-content: center; /* Ensures items are centered within the menu */
+}
+
+.logo-img {
+    width: 100px; 
+    height: auto;
+    vertical-align: middle;
+}
+
+
+/* Navigation bar styles */
+nav ul {
+    padding: 0;
+    text-align: center; /* Center the navigation menu */
+}
+
+nav ul li {
+    display: inline; /* Display the list items inline */
+    padding: 0 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+

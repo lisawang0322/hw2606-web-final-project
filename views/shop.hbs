@@ -1,0 +1,32 @@
+<section class="ui segment shop-page">
+    <h1 class="ui huge header">All Products</h1>
+    {{#if isOwner}}
+    <div class="add-product-button">
+        <a href="/user/add-product" class="ui button primary">Add New Product</a>
+    </div>
+    {{/if}}
+
+    <div class="ui stackable four column grid products-grid">
+        {{#each products}}
+            <article class="column">
+                <div class="ui card">
+                    {{#if this.images}}
+                        <img src="{{this.images.[0]}}" alt="{{this.name}}" class="ui image"> <!-- Show the first image -->
+                    {{else}}
+                        <img src="/images/default.png" alt="Default Image" class="ui image"> <!-- Fallback image -->
+                    {{/if}}
+                    <div class="content">
+                        <h2 class="header">
+                            <a href="/product/{{this.slug}}">{{this.name}}</a>
+                        </h2>
+                        <h3 class="meta product-price">${{this.price}}</h3>
+                    </div>
+                </div>
+            </article>
+        {{else}}
+        <div class="ui message">
+            <p>No products found.</p>
+        </div>
+        {{/each}}
+    </div>
+</section>
